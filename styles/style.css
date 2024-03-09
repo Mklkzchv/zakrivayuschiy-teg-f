@@ -22,6 +22,7 @@
   color: var(--text-color, #000000);
   font-family: var(--page-main-font-family);
   background-color: var(--page-background-color, #ffffff);
+  background-image: var(--page-background-image, none);
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -32,14 +33,11 @@
 .header {
   margin: 0;
   padding: 0;
-  background-image: var(--page-background-image, none);
-  overflow: hidden;
 }
 
 .theme-menu__back {
   width: clamp(371px, 100%, 700px);
-  height: 327px;
-  margin: 100px auto 500px auto;
+  margin: 100px auto;
   padding: 0;
   background-color: var(--page-background-color, #ffffff);
   border: 2px solid var(--text-color, #000000);
@@ -50,8 +48,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  margin-top: 95px;
-  height: 130px;
+  margin-top: 115px;
 }
 
 .theme-menu__title {
@@ -60,6 +57,7 @@
   font-size: 49px;
   font-weight: 400;
   text-align: center;
+  text-decoration: none;
 }
 
 .theme-menu__subtitle {
@@ -77,6 +75,8 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  margin-top: 19px;
+  margin-bottom: 21px;
 }
 
 .theme-menu__list {
@@ -159,13 +159,12 @@
   max-inline-size: 100%;
   max-width: 700px;
   margin: 0 auto;
-  margin-top: -400px;
 }
 
 .card {
   background-color: var(--page-background-color, #ffffff);
   border: 2px solid var(--text-color, #000000);
-  padding-bottom: 21px;
+  padding-bottom: 25px;
 }
 
 .card__title {
@@ -194,10 +193,10 @@
   mix-blend-mode: hard-light;
 }
 
-@supports((-webkit-text-stroke: 1px var(--different__text-color)) or (text-stroke: 1px var(--different__text-color))) {
+@supports((-webkit-text-stroke: 1px var(--background-color)) or (text-stroke: 1px var(--background-color))) {
   .card__watermark {
-    -webkit-text-stroke: 1px var(--different__text-color);
-    text-stroke: 1px var(--different__text-color);
+    -webkit-text-stroke: 1px var(--background-color);
+    text-stroke: 1px var(--background-color);
     text-shadow: none;
   }
 }
@@ -215,7 +214,7 @@
   display: flex;
   flex-direction: column;
   gap: 27px;
-  padding: 27px 24px 22px 24px;
+  padding: 27px 24px 24px 24px;
 }
 
 .card__text {
@@ -233,26 +232,30 @@
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  padding-right: 22px;
+  padding-right: 23px;
 }
 
 .card__icon-button {
+  width: 38px;
+  height: 34px;
+  margin-inline-end: 5px;
+  padding: 0;
   display: flex;
-  height: fit-content;
-  background: var(--page-background-color, #ffffff);
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
-  appearance: none;
+  justify-content: center;
+  align-items: center;
+  background: none;
   cursor: pointer;
+  border: none;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
   outline: none;
+  border: none;
 }
 
 .card__icon-button:focus-visible {
-  border-color: var(--color-primary);
-  outline: none;
+  outline: 2px solid var(--border__text-color);
 }
 
 .button {
@@ -340,7 +343,6 @@
 
 .footer__window {
   width: 357px;
-  min-height: 193px;
   display: grid;
   position: fixed;
   inset: 0;
@@ -391,11 +393,15 @@
 }
 
 .like-icon {
-  block-size: 36px;
-  inline-size: 39px;
+  block-size: 38px;
+  inline-size: 38px;
 }
 
 @media (width > 768px) {
+
+  .card {
+    padding-bottom: 26px;
+  }
 
   .nested__element {
     padding-block-start: 50px; 
@@ -407,8 +413,7 @@
   }
 
   .card__actions {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-right: 27px;
   }
 
   .card__text-group {
@@ -416,11 +421,12 @@
   }
 
   .container {
-    margin-top: -392px;
+    margin-top: 8px;
   }
 
   .theme-menu {
-    margin-top: 17px;
+    margin-top: 23px;
+    margin-bottom: 20px;
   }
 
   .theme-menu__title {
@@ -432,13 +438,9 @@
   }
   
   .theme-menu__title-container {
-    margin-top: 121px;
+    margin-top: 129px;
   }
 
-  .theme-menu__back {
-    height: 368px;
-  }
-  
   .theme-menu__title {
     font-size: 65px;
   }
@@ -464,8 +466,8 @@
 }
 
 .dialog__image {
-  width: 39px;
-  height: 39px;
+  min-width: 39px;
+  min-height: 39px;
 }
 
 .card__image-saturate {
